@@ -8,12 +8,22 @@ import img6 from "./img5.jpg";
 
 toast.configure()
 const Appointment = () => {
-    const [title, setTitle] = useState('');
     const [userName, setUserName] = useState('');
+    // const [phone, setPhone] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [phone, setPhone] = useState('');
+    // const [phone, setPhone] = useState('');
+    // const [phone, setPhone] = useState('');
+    // const [phone, setPhone] = useState('');
+    const [phone, setPhone] = useState('');
+
+
+    const [title, setTitle] = useState('');
+
     const [service, setService] = useState('consultant');
     const [date, setDate] = useState('');
     const [birthDate, setBirthDate] = useState('');
-    const [phone, setPhone] = useState('');
+
     const [consumer, setConsumer] = useState('Dr.Saman Perera');
     const [time, setTime] = useState('evening');
     const [employees,setEmployees] = useState([]);
@@ -62,22 +72,10 @@ const success = () =>{
         // })
     }
 
-        useEffect(() =>{
-            //get data function
-            async function fetchPosts() {
-                const response = await  axios.get("/employee");
-                //save data to the setvideos from response
-                console.log(response.data)
-                setEmployees(response.data);
-                return response;
-            }
-            fetchPosts().then(r => console.log("done"));
-        },[]);
-
 
     return (
         <div className="create">
-            <h2>Make an Appointment</h2>
+            <h2>Register To Class</h2>
             <form className="appointment-form">
 
                 <Row className="mt-3">
@@ -93,31 +91,30 @@ const success = () =>{
                         {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
                     <Col xs="6">
-                        <label>Birth Date:</label>
+                        <label>Phone:</label>
                         <input
-                            className="bg-light p-2 border date"
-                            type="date"
+                            className="bg-light p-2 border phone"
+                            type="text"
                             required
-                            value={birthDate}
-                            onChange={(e) => setBirthDate(e.target.value)}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
-                        {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
                 </Row>
                 <Row className="mt-3">
                     <Col xs="6">
-                        <label>Date:</label>
+                        <label>A/L Year:</label>
                         <input
-                            className="bg-light p-2 border date"
-                            type="date"
+                            className="bg-light p-2 border phone"
+                            type="text"
                             required
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                         {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
                     <Col xs="6">
-                        <label>Phone:</label>
+                        <label>Email:</label>
                         <input
                             className="bg-light p-2 border phone"
                             type="text"
@@ -128,19 +125,37 @@ const success = () =>{
                         {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
                 </Row>
-                <label>Service:</label>
-                <select
-                    className="bg-light p-2 border"
-                    value={service}
-                    required
-                    onChange={(e) => setService(e.target.value)}
-                >
-                    {employees.map(
-                        ({name, service, jobRole, workingHours, workedHours, sallery}) =>(
-                            <option value={service}>{service}</option>
-                        )
-                    )}
-                </select>
+                <Row className="mt-3">
+                    <Col xs="6">
+                        <label>Class:</label>
+                        <select
+                            className="bg-light p-2 border"
+                            value={service}
+                            required
+                            onChange={(e) => setService(e.target.value)}
+                        >
+                            <option value="Grade12">Grade12</option>
+                            <option value="Grade13">Grade13</option>
+                            <option value="Grade12">PaperClass</option>
+                            <option value="Grade13">Revision</option>
+                        </select>
+                        {/*<div className="bg-light p-2 border">.col-6</div>*/}
+                    </Col>
+                    <Col xs="6">
+                        <label>Medium</label>
+                        <select
+                            className="bg-light p-2 border"
+                            value={service}
+                            required
+                            onChange={(e) => setService(e.target.value)}
+                        >
+                            <option value="sinhala">සිංහල</option>
+                            <option value="english">English</option>
+
+                        </select>
+                    </Col>
+                </Row>
+
                 {/*<label>Description:</label>*/}
                 {/*<textarea*/}
                 {/*    className="bg-light p-2 border description"*/}
@@ -149,34 +164,16 @@ const success = () =>{
                 {/*    onChange={(e) =>setService(e.target.value) }*/}
                 {/*/>*/}
                 <Row className="mt-3">
-                    <Col xs="6">
-                        <label>Consumer:</label>
-                        <select
-                            className="bg-light p-2 border"
-                            value={consumer}
-                            required
-                            onChange={(e) => setConsumer(e.target.value)}
-                        >
-                            {employees.map(
-                                ({name, service, jobRole, workingHours, workedHours, sallery}) =>(
-                                    <option value={name}>{name}</option>
-                                )
-                            )}
 
-                        </select>
-                    </Col>
-                    <Col xs="6">
-                        <label>Time:</label>
-                        <select
-                            className="bg-light p-2 border"
-                            value={time}
+                        <label>School:</label>
+                        <input
+                            className="bg-light p-2 border phone"
+                            type="text"
                             required
-                            onChange={(e) => setTime(e.target.value)}
-                        >
-                            <option value="evening">Evening</option>
-                            <option value="morning">Morning</option>
-                        </select>
-                    </Col>
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                        />
+
                 </Row>
 
 

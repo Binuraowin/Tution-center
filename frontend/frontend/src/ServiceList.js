@@ -40,7 +40,8 @@ const ServiceList = () => {
                             <CardImg top width="100%" src={Grade12} alt="Card image cap" />
                             <CardBody className="card-body-my">
                                 <CardTitle className="card-body-my">Grade12</CardTitle>
-                                {/*<CardText>We Are professional for your Makeup </CardText>*/}
+                                <CardText>සිංහල Monday: 1.00 PM - 5.00 PM</CardText>
+                                <CardText>English Tuesday: 1.00 PM - 5.00 PM</CardText>
 
                             </CardBody>
                         </Card>
@@ -48,7 +49,8 @@ const ServiceList = () => {
                             <CardImg top width="100%" src={Grade13} alt="Card image cap" />
                             <CardBody className="card-body-my">
                                 <CardTitle>Grade13</CardTitle>
-                                {/*<CardText>We Are professional for your Bread </CardText>*/}
+                                <CardText>සිංහල Wednesday: 1.00 PM - 5.00 PM</CardText>
+                                <CardText>English Thursday: 1.00 PM - 5.00 PM</CardText>
 
                             </CardBody>
                         </Card>
@@ -57,7 +59,8 @@ const ServiceList = () => {
                             <CardImg top width="100%" src={PaperClass} alt="Card image cap" />
                             <CardBody className="card-body-my">
                                 <CardTitle>PaperClass</CardTitle>
-                                {/*<CardText>We Are professional for Haircut and Styling</CardText>*/}
+                                <CardText>සිංහල Saturday: 1.00 PM - 4.00 PM</CardText>
+                                <CardText>English Monday: 8.00 AM - 11.00 AM</CardText>
 
                             </CardBody>
                         </Card>
@@ -65,7 +68,8 @@ const ServiceList = () => {
                             <CardImg top width="100%" src={Revision} alt="Card image cap" />
                             <CardBody className="card-body-my">
                                 <CardTitle>Revision</CardTitle>
-                                {/*<CardText>We Are professional for your Body Treatment</CardText>*/}
+                                <CardText>සිංහල Sunday: 1.00 PM - 5.00 PM</CardText>
+                                <CardText>English Thursday: 7.00 AM - 11.00 AM</CardText>
 
                             </CardBody>
                         </Card>
