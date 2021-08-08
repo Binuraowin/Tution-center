@@ -8,25 +8,13 @@ import img6 from "./img5.jpg";
 
 toast.configure()
 const Appointment = () => {
-    const [userName, setUserName] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [phone, setPhone] = useState('');
-    // const [phone, setPhone] = useState('');
+    const [userName, setUserName] = useState('')
     const [phone, setPhone] = useState('');
-
-
-    const [title, setTitle] = useState('');
-
-    const [service, setService] = useState('consultant');
-    const [date, setDate] = useState('');
-    const [birthDate, setBirthDate] = useState('');
-
-    const [consumer, setConsumer] = useState('Dr.Saman Perera');
-    const [time, setTime] = useState('evening');
-    const [employees,setEmployees] = useState([]);
+    const [email, setEmail] = useState('');
+    const [medium, setMedium] = useState('');
+    const [grade, setGrade] = useState('');
+    const [school, setSchool] = useState('');
+    const [year, setYear] = useState('');
     const history = useHistory();
 
 const success = () =>{
@@ -44,7 +32,7 @@ const success = () =>{
     }
     function submit() {
 
-        const appointment = { userName,date, time, service,consumer,birthDate,phone};
+        const appointment = { userName,phone,email,medium,grade,school,year};
         console.log(appointment)
         axios.post('http://localhost:3001/appointments', appointment)
             .then(response =>
@@ -108,8 +96,8 @@ const success = () =>{
                             className="bg-light p-2 border phone"
                             type="text"
                             required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            value={year}
+                            onChange={(e) => setYear(e.target.value)}
                         />
                         {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
@@ -119,8 +107,8 @@ const success = () =>{
                             className="bg-light p-2 border phone"
                             type="text"
                             required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         {/*<div className="bg-light p-2 border">.col-6</div>*/}
                     </Col>
@@ -130,9 +118,9 @@ const success = () =>{
                         <label>Class:</label>
                         <select
                             className="bg-light p-2 border"
-                            value={service}
+                            value={grade}
                             required
-                            onChange={(e) => setService(e.target.value)}
+                            onChange={(e) => setGrade(e.target.value)}
                         >
                             <option value="Grade12">Grade12</option>
                             <option value="Grade13">Grade13</option>
@@ -145,9 +133,9 @@ const success = () =>{
                         <label>Medium</label>
                         <select
                             className="bg-light p-2 border"
-                            value={service}
+                            value={medium}
                             required
-                            onChange={(e) => setService(e.target.value)}
+                            onChange={(e) => setMedium(e.target.value)}
                         >
                             <option value="sinhala">සිංහල</option>
                             <option value="english">English</option>
@@ -170,8 +158,8 @@ const success = () =>{
                             className="bg-light p-2 border phone"
                             type="text"
                             required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            value={school}
+                            onChange={(e) => setSchool(e.target.value)}
                         />
 
                 </Row>

@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 
 const appointmentRoutes = require('./api/routes/appointments');
-const employeeRoutes = require('./api/routes/employees');
 
 const corsOptions = {
     origin: '*',
@@ -31,10 +30,9 @@ app.use((req,res,next) =>{
 })
 
 app.use('/appointments',appointmentRoutes);
-app.use('/employee',employeeRoutes);
 
 //DB config
-const connection_url =  'mongodb://Admin:admin@cluster0-shard-00-00.hat3j.mongodb.net:27017,cluster0-shard-00-01.hat3j.mongodb.net:27017,cluster0-shard-00-02.hat3j.mongodb.net:27017/clinic?ssl=true&replicaSet=atlas-2m0f9m-shard-0&authSource=admin&retryWrites=true&w=majority';
+const connection_url =  'mongodb://Admin:admin@cluster0-shard-00-00.hat3j.mongodb.net:27017,cluster0-shard-00-01.hat3j.mongodb.net:27017,cluster0-shard-00-02.hat3j.mongodb.net:27017/tution?ssl=true&replicaSet=atlas-2m0f9m-shard-0&authSource=admin&retryWrites=true&w=majority';
 // const connection_url = 'mongodb://admin:admin@cluster0-shard-00-00.nctsk.mongodb.net:27017,cluster0-shard-00-01.nctsk.mongodb.net:27017,cluster0-shard-00-02.nctsk.mongodb.net:27017/saloon?ssl=true&replicaSet=atlas-mx6mbv-shard-0&authSource=admin&retryWrites=true&w=majority';
 mongoose.connect(connection_url,{
     useNewUrlParser:true,

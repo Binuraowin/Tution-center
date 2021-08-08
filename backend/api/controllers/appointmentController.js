@@ -8,26 +8,32 @@ const Appointment = require('../models/appointment');
 
 exports.appointment_get_all = (req, res, next) => {
   Appointment.find().select(
-      "userName _id date time service id consumer email phone"
+      "userName _id medium email phone grade school year id"
     ).exec()
     .then(docs => {
+      console.log("one")
+      console.log(docs)
       const response = {
+        
         // count: docs.length,
-        products: docs.map(doc => {
+        data: docs.map(doc => {
           return {
-            userName: doc.userName,
-            date: doc.date,
-            time: doc.time,
-            service: doc.service,
-            _id: doc._id,
             id: doc.id,
-            birthDate:doc.birthDate
+            userName: doc.userName,
+            _id: doc._id,
+            medium: doc.medium,
+            email: doc.email,
+            phone: doc.phone,
+            grade: doc.grade,
+            school: doc.school,
+            year:doc.year
           };
         })
       };
+      console.log(response)
       //   if (docs.length >= 0) {
       res.header('Content-Range', 'Appointments 0-5/20')
-      res.status(200).json(docs);
+      res.status(200).json(response.data);
       //   } else {
       //       res.status(404).json({
       //           message: 'No entries found'
@@ -56,13 +62,13 @@ exports.appointment_create = (req, res, next) => {
       } else {
         const appointment = new Appointment({
           _id: new mongoose.Types.ObjectId(),
-          userName: req.body.userName,
-          date: req.body.date,
-          time: req.body.time,
-          service: req.body.service,
-          consumer: req.body.consumer,
-          birthDate:req.body.birthDate,
-          phone: req.body.phone,
+          userName:  req.body.userName,
+          medium:  req.body.medium,
+          email:  req.body.email,
+          phone:  req.body.phone,
+          grade:  req.body.grade,
+          school:  req.body.school,
+          year: req.body.year,
           id: uuidv4(),
         });
         appointment.save()
@@ -84,6 +90,7 @@ exports.appointment_create = (req, res, next) => {
 
 exports.appointment_get_one = (req, res, next) => {
   const id = req.params.appointmentId;
+  console.log(req.params.appointmentId)
   Appointment.find({
       id: id,
     }).select("userName _id date time service id consumer email phone")
@@ -91,16 +98,17 @@ exports.appointment_get_one = (req, res, next) => {
     .then(doc => {
       if (doc) {
         res.header('Content-Range', 'Employees 0-2/10')
+        console.log(doc)
         // res.setHeader('X-Total-Count', docs.length);
         res.status(201).json({
-           id:1,
+           id:doc[0].id,
            userName: doc[0].userName,
-            date: doc[0].date,
-            time: doc[0].time,
-            service: doc[0].service,
-            consumer: doc[0].consumer,
-            birthDate:doc[0].birthDate,
-            phone: doc[0].phone,
+           medium:  doc[0].medium,
+           email:  doc[0].email,
+           phone:  doc[0].phone,
+           grade:  doc[0].grade,
+           school:  doc[0].school,
+           year: doc[0].year,
             _id: doc[0]._id,
         });
       } else {
@@ -128,14 +136,14 @@ exports.appointment_update = (req, res, next) => {
       console.log(result)
       // res.setHeader('X-Total-Count', docs.length);
       res.status(201).json({
-        id:1,
+        id:result.id,
         userName: result.userName,
-         date: result.date,
-         time: result.time,
-         service: result.service,
-         consumer: result.consumer,
-         birthDate:result.birthDate,
-         phone: result.phone,
+        medium:  result.medium,
+        email:  result.email,
+        phone: result.phone,
+        grade:  result.grade,
+        school:  result.school,
+        year: result.year,
          _id: result._id,
        
      });
@@ -156,23 +164,25 @@ exports.appointment_delete = (req, res, next) => {
   .exec()
   .then(doc => {
     if (doc) {
+      console.log(doc)
       Appointment.findByIdAndRemove({
         _id: doc[0]._id
       })
       .exec()
       .then(result => {
         res.header('Content-Range', 'Employees 0-2/10')
+        console.log(result)
         // res.setHeader('X-Total-Count', docs.length);
         res.status(201).json({
-           id:1,
-           userName: result.userName,
-            date: result.date,
-            time: result.time,
-            service: result.service,
-            consumer: result.consumer,
-            birthDate:result.birthDate,
-            phone: result.phone,
-            _id: result._id,
+          id:result.id,
+          userName: result.userName,
+          medium:  result.medium,
+          email:  result.email,
+          phone: result.phone,
+          grade:  result.grade,
+          school:  result.school,
+          year: result.year,
+           _id: result._id,
           
         });
       })

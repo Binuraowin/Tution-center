@@ -7,13 +7,12 @@ export const AppointmentList = props => (
 
         <Datagrid rowClick="edit">
             <TextField source='userName' />
-            <TextField source='date' />
-            <TextField source='time' />
-            <TextField source='service' />
-            <TextField source='id' />
-            <TextField source='consumer' />
-            <TextField source='birthDate' />
+            <TextField source='medium' />
+            <TextField source='email' />
             <TextField source='phone' />
+            <TextField source='grade' />
+            <TextField source='school' />
+            <TextField source='year' />
             <EditButton />
             <DeleteButton/>
         </Datagrid>
