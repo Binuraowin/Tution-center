@@ -30,7 +30,7 @@ const ServiceList = () => {
                 <div>
                     <div className="artists-header">
                         <span >Services</span>
-                        <h2 >Services Menu</h2>
+                        <h2 >Time Table</h2>
                         <p>This is our professional services we gives to you</p>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="row mb-5">
                     <div className="col-md">
                         <div className="ftco-footer-widget mb-4">
-                            <h2 className="ftco-heading-2 logo">Haircare</h2>
+                            <h2 className="ftco-heading-2 logo">Chandika Dewruwan</h2>
                             <p>We Are professional Care for your Hair</p>
                             <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                                 <li className="ftco-animate"><Link href="#"><span className="icon-twitter"></span></Link></li>
